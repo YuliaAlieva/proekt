@@ -60,7 +60,6 @@ def main():
         # Держим цикл на правильной скорости
         clock.tick(FPS)
         pygame.mixer.music.get_busy()
-
         # Ввод процесса (события)
         for event in pygame.event.get():
             # check for closing window
@@ -100,6 +99,8 @@ def fon():
 
 def vopros1():
     fon()
+    global vop1
+    vop1 = False
     global count
     im1 = pygame.image.load("heops.bmp")
     screen.blit(im1, [450, 80])
@@ -136,14 +137,11 @@ def vopros1():
                 if button2.collidepoint(mouse_pos):
                     pygame.quit()
                 if button3.collidepoint(mouse_pos):
-                    screen.fill(WHITE)
                     vopros2()
-
                 if button4.collidepoint(mouse_pos):
                     vopros2()
-
                 if button5.collidepoint(mouse_pos):
-                    # global count
+                    vop1 = True
                     count += 1
                     print(count)
                     vopros2()
@@ -156,6 +154,8 @@ def vopros1():
 
 def vopros2():
     fon()
+    global vop2
+    vop2 = False
     global count
     im1 = pygame.image.load("sady.bmp")
     screen.blit(im1, [450, 120])
@@ -191,15 +191,14 @@ def vopros2():
                 if button2.collidepoint(mouse_pos):
                     pygame.quit()
                 if button3.collidepoint(mouse_pos):
+                    vop2 = True
                     count = count + 1
                     print(count)
                     vopros3()
                 if button4.collidepoint(mouse_pos):
                     vopros3()
                 if button5.collidepoint(mouse_pos):
-                    # count = count + 1
                     vopros3()
-                    # print(count)
                 if button6.collidepoint(mouse_pos):
                     vopros3()
 
@@ -209,6 +208,8 @@ def vopros2():
 
 def vopros3():
     fon()
+    global vop3
+    vop3 = True
     global count
     im1 = pygame.image.load("zevs.bmp")
     screen.blit(im1, [450, 80])
@@ -248,10 +249,9 @@ def vopros3():
                 if button4.collidepoint(mouse_pos):
                     vopros4()
                 if button5.collidepoint(mouse_pos):
-                    # count = count + 1
                     vopros4()
-                    # print(count)
                 if button6.collidepoint(mouse_pos):
+                    vop3 = True
                     count = count + 1
                     print(count)
                     vopros4()
@@ -263,6 +263,8 @@ def vopros3():
 
 def vopros4():
     fon()
+    global vop4
+    vop4 = False
     global count
     im1 = pygame.image.load("hram.bmp")
     screen.blit(im1, [400, 90])
@@ -298,18 +300,184 @@ def vopros4():
                 if button2.collidepoint(mouse_pos):
                     pygame.quit()
                 if button3.collidepoint(mouse_pos):
-                    vopros3()
+                    vopros5()
                 if button4.collidepoint(mouse_pos):
+                    vop4 = True
                     count = count + 1
                     print(count)
-
+                    vopros5()
                 if button5.collidepoint(mouse_pos):
-                    vopros3()
+                    vopros5()
                 if button6.collidepoint(mouse_pos):
-                    vopros3()
+                    vopros5()
 
         pygame.display.update()
         pygame.display.flip()
+
+
+def vopros5():
+    fon()
+    global vop5
+    vop5 = False
+    global count
+    im1 = pygame.image.load("mavz.bmp")
+    screen.blit(im1, [450, 90])
+    font3 = pygame.font.SysFont('comicsansms', 50)
+    text = font3.render("Вопрос №5", True, ROYALBLUE)
+    screen.blit(text, [450, 20])
+    font4 = pygame.font.SysFont('comicsansms', 25)
+    text3 = font4.render("Кем был разработан проект Мавзолей в Галикарнасе?", True, ROYALBLUE)
+    screen.blit(text3, [400, 450])
+    font5 = pygame.font.SysFont('comicsansms', 30)
+    text4 = font5.render("1) Калликрат", True, ROYALBLUE)
+    screen.blit(text4, [540, 490])
+    button3 = pygame.Rect(490, 495, 40, 40)
+    pygame.draw.rect(screen, [183, 187, 240], button3)
+    text5 = font5.render("2) Фидий и Поликлет", True, ROYALBLUE)
+    screen.blit(text5, [540, 540])
+    button4 = pygame.Rect(490, 545, 40, 40)
+    pygame.draw.rect(screen, [183, 187, 240], button4)
+    text6 = font5.render("3) Перикл", True, ROYALBLUE)
+    screen.blit(text6, [540, 590])
+    button5 = pygame.Rect(490, 595, 40, 40)
+    pygame.draw.rect(screen, [183, 187, 240], button5)
+    text7 = font5.render("4) Пифей", True, ROYALBLUE)
+    screen.blit(text7, [540, 640])
+    button6 = pygame.Rect(490, 645, 40, 40)
+    pygame.draw.rect(screen, [183, 187, 240], button6)
+    running = True
+    while running:
+        clock.tick(FPS)
+        for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_pos = event.pos  # gets mouse position
+                if button2.collidepoint(mouse_pos):
+                    pygame.quit()
+                if button3.collidepoint(mouse_pos):
+                    vopros6()
+                if button4.collidepoint(mouse_pos):
+                    vopros6()
+                if button5.collidepoint(mouse_pos):
+                    vopros6()
+                if button6.collidepoint(mouse_pos):
+                    vop5 = True
+                    count = count + 1
+                    print(count)
+                    vopros6()
+
+        pygame.display.update()
+        pygame.display.flip()
+
+
+def vopros6():
+    fon()
+    global vop6
+    vop6 = False
+    global count
+    im1 = pygame.image.load("kolos.bmp")
+    screen.blit(im1, [450, 90])
+    font3 = pygame.font.SysFont('comicsansms', 50)
+    text = font3.render("Вопрос №6", True, ROYALBLUE)
+    screen.blit(text, [450, 20])
+    font4 = pygame.font.SysFont('comicsansms', 25)
+    text3 = font4.render("Какова причина разрушения Колосса Родосского?", True, ROYALBLUE)
+    screen.blit(text3, [450, 430])
+    font5 = pygame.font.SysFont('comicsansms', 30)
+    text4 = font5.render("1) Ураган", True, ROYALBLUE)
+    screen.blit(text4, [540, 490])
+    button3 = pygame.Rect(490, 495, 40, 40)
+    pygame.draw.rect(screen, [183, 187, 240], button3)
+    text5 = font5.render("2) Землетрясение", True, ROYALBLUE)
+    screen.blit(text5, [540, 540])
+    button4 = pygame.Rect(490, 545, 40, 40)
+    pygame.draw.rect(screen, [183, 187, 240], button4)
+    text6 = font5.render("3) Ледниковый период", True, ROYALBLUE)
+    screen.blit(text6, [540, 590])
+    button5 = pygame.Rect(490, 595, 40, 40)
+    pygame.draw.rect(screen, [183, 187, 240], button5)
+    text7 = font5.render("4) Принудительное разрушение", True, ROYALBLUE)
+    screen.blit(text7, [540, 640])
+    button6 = pygame.Rect(490, 645, 40, 40)
+    pygame.draw.rect(screen, [183, 187, 240], button6)
+    running = True
+    while running:
+        clock.tick(FPS)
+        for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_pos = event.pos  # gets mouse position
+                if button2.collidepoint(mouse_pos):
+                    pygame.quit()
+                if button3.collidepoint(mouse_pos):
+                    vopros7()
+                if button4.collidepoint(mouse_pos):
+                    count = count + 1
+                    vop6 = True
+                    print(count)
+                    vopros7()
+                if button5.collidepoint(mouse_pos):
+                    vopros7()
+                if button6.collidepoint(mouse_pos):
+                    vopros7()
+
+        pygame.display.update()
+        pygame.display.flip()
+
+        def vopros7():
+            fon()
+            global vop7
+            vop7 = False
+            global count
+            im1 = pygame.image.load("mayak.bmp")
+            screen.blit(im1, [360, 90])
+            font3 = pygame.font.SysFont('comicsansms', 50)
+            text = font3.render("Вопрос №7", True, ROYALBLUE)
+            screen.blit(text, [450, 20])
+            font4 = pygame.font.SysFont('comicsansms', 25)
+            text3 = font4.render("Для чего предназначался Александрийский маяк?", True, ROYALBLUE)
+            screen.blit(text3, [450, 430])
+            font5 = pygame.font.SysFont('comicsansms', 30)
+            text4 = font5.render("1) Для судоходства", True, ROYALBLUE)
+            screen.blit(text4, [540, 490])
+            button3 = pygame.Rect(490, 495, 40, 40)
+            pygame.draw.rect(screen, [183, 187, 240], button3)
+            text5 = font5.render("2) Для смотровой площадки", True, ROYALBLUE)
+            screen.blit(text5, [540, 540])
+            button4 = pygame.Rect(490, 545, 40, 40)
+            pygame.draw.rect(screen, [183, 187, 240], button4)
+            text6 = font5.render("3) Для хранения овощей", True, ROYALBLUE)
+            screen.blit(text6, [540, 590])
+            button5 = pygame.Rect(490, 595, 40, 40)
+            pygame.draw.rect(screen, [183, 187, 240], button5)
+            text7 = font5.render("4) Для красоты", True, ROYALBLUE)
+            screen.blit(text7, [540, 640])
+            button6 = pygame.Rect(490, 645, 40, 40)
+            pygame.draw.rect(screen, [183, 187, 240], button6)
+            running = True
+            while running:
+                clock.tick(FPS)
+                for event in pygame.event.get():
+                    if event.type == pygame.MOUSEBUTTONDOWN:
+                        mouse_pos = event.pos  # gets mouse position
+                        if button2.collidepoint(mouse_pos):
+                            pygame.quit()
+                        if button3.collidepoint(mouse_pos):
+                            vop7 = True
+                            count = count + 1
+                            print(count)
+                            finish()
+                        if button4.collidepoint(mouse_pos):
+                            finish()
+                        if button5.collidepoint(mouse_pos):
+                            finish()
+                        if button6.collidepoint(mouse_pos):
+                            finish()
+
+                pygame.display.update()
+                pygame.display.flip()
+
+
+def finish():
+    fon()
 
 
 if __name__ == '__main__':
