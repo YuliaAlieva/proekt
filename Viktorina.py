@@ -27,12 +27,13 @@ pygame.display.set_caption("My Game")
 clock = pygame.time.Clock()
 pygame.mixer.music.load('uku.mp3')
 pygame.mixer.music.play()
+pygame.mixer.music.play(loops=-1)
 rect = pygame.Rect(40, 40, 120, 120)
 color = (255, 255, 255)
-ship = pygame.image.load("wa.bmp")
-ship_top = screen.get_height() - ship.get_height()
-ship_left = screen.get_width() / 2 - ship.get_width() / 2
-screen.blit(ship, (ship_left, ship_top))
+foon = pygame.image.load("wa.bmp")
+foon_top = screen.get_height() - foon.get_height()
+foon_left = screen.get_width() / 2 - foon.get_width() / 2
+screen.blit(foon, (foon_left, foon_top))
 count = 0
 font = pygame.font.SysFont('comicsansms', 100)
 text = font.render("Викторина", True, PALEVIOLETRED)
@@ -65,22 +66,15 @@ def main():
             # check for closing window
             if event.type == pygame.QUIT:
                 running = False
-            # if event.type == pygame.KEYDOWN:
-            # screen.fill(WHITE)
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = event.pos  # gets mouse position
                 if button.collidepoint(mouse_pos):
                     vopros1()
-                    # screen.fill(WHITE)
                     print('button was pressed at {0}'.format(mouse_pos))
                 if button2.collidepoint(mouse_pos):
                     pygame.quit()
 
-        # screen.fill(WHITE)
-
         pygame.display.update()
-
-        # После отрисовки всего, переворачиваем экран
         pygame.display.flip()
 
 
@@ -255,7 +249,6 @@ def vopros3():
                     count = count + 1
                     print(count)
                     vopros4()
-                    # screen.fill(WHITE)
 
         pygame.display.update()
         pygame.display.flip()
@@ -477,7 +470,119 @@ def vopros6():
 
 
 def finish():
+    global count
     fon()
+    font3 = pygame.font.SysFont('comicsansms', 50)
+    font5 = pygame.font.SysFont('comicsansms', 50)
+    text = font3.render("Количество очков:", True, ROYALBLUE)
+    text2 = font5.render(str(count), True, ROYALBLUE)
+    screen.blit(text, [450, 50])
+    screen.blit(text2, [660, 150])
+    button = pygame.Rect(570, 500, 220, 60)
+    pygame.draw.rect(screen, [183, 187, 240], button)
+    font1 = pygame.font.SysFont('comicsansms', 40)
+    text1 = font1.render("Подробнее", True, PALEVIOLETRED)
+    screen.blit(text1, [570, 490])
+    running = True
+    while running:
+        clock.tick(FPS)
+        for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_pos = event.pos  # gets mouse position
+                if button2.collidepoint(mouse_pos):
+                    pygame.quit()
+                if button.collidepoint(mouse_pos):
+                    info()
+
+        pygame.display.update()
+        pygame.display.flip()
+
+
+def info():
+    font1 = pygame.font.SysFont('comicsansms', 40)
+
+    if not vop1:
+        text1 = font1.render("1.Вы ответили неправильно, правильный ответ Пирамида Хеопса", True, PALEVIOLETRED)
+        screen.blit(text1, [570, 490])
+        info2()
+    else:
+        print("1.Вы ответили правильно")
+        info2()
+
+
+def info2():
+    font1 = pygame.font.SysFont('comicsansms', 40)
+
+    if not vop1:
+        text1 = font1.render("1.Вы ответили неправильно, правильный ответ Пирамида Хеопса", True, PALEVIOLETRED)
+        screen.blit(text1, [570, 490])
+        info3()
+    else:
+        text1 = font1.render("1.Вы ответили правильно", True, PALEVIOLETRED)
+        screen.blit(text1, [570, 490])
+        info3()
+
+
+def info3():
+    font1 = pygame.font.SysFont('comicsansms', 40)
+
+    if not vop1:
+        text1 = font1.render("1.Вы ответили неправильно, правильный ответ Пирамида Хеопса", True, PALEVIOLETRED)
+        screen.blit(text1, [570, 490])
+        info4()
+    else:
+        text1 = font1.render("1.Вы ответили правильно", True, PALEVIOLETRED)
+        screen.blit(text1, [570, 490])
+        info4()
+
+
+def info4():
+    font1 = pygame.font.SysFont('comicsansms', 40)
+
+    if not vop1:
+        text1 = font1.render("1.Вы ответили неправильно, правильный ответ Пирамида Хеопса", True, PALEVIOLETRED)
+        screen.blit(text1, [570, 490])
+        info5()
+    else:
+        text1 = font1.render("1.Вы ответили правильно", True, PALEVIOLETRED)
+        screen.blit(text1, [570, 490])
+        info5()
+
+
+def info5():
+    font1 = pygame.font.SysFont('comicsansms', 40)
+
+    if not vop1:
+        text1 = font1.render("1.Вы ответили неправильно, правильный ответ Пирамида Хеопса", True, PALEVIOLETRED)
+        screen.blit(text1, [570, 490])
+        info6()
+    else:
+        text1 = font1.render("1.Вы ответили правильно", True, PALEVIOLETRED)
+        screen.blit(text1, [570, 490])
+        info6()
+
+
+def info6():
+    font1 = pygame.font.SysFont('comicsansms', 40)
+
+    if not vop1:
+        text1 = font1.render("1.Вы ответили неправильно, правильный ответ Пирамида Хеопса", True, PALEVIOLETRED)
+        screen.blit(text1, [570, 490])
+        info7()
+    else:
+        text1 = font1.render("1.Вы ответили правильно", True, PALEVIOLETRED)
+        screen.blit(text1, [570, 490])
+        info(7)
+
+
+def info7():
+    font1 = pygame.font.SysFont('comicsansms', 40)
+    if not vop1:
+        text1 = font1.render("1.Вы ответили неправильно, правильный ответ Пирамида Хеопса", True, PALEVIOLETRED)
+        screen.blit(text1, [570, 490])
+    else:
+        text1 = font1.render("1.Вы ответили правильно", True, PALEVIOLETRED)
+        screen.blit(text1, [570, 490])
 
 
 if __name__ == '__main__':
