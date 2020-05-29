@@ -34,17 +34,17 @@ screen.blit(foon, (foon_left, foon_top))
 count = 0
 font = pygame.font.SysFont('comicsansms', 100)
 text = font.render("Викторина", True, PALEVIOLETRED)
-screen.blit(text, [450, 50])
-button = pygame.Rect(610, 210, 200, 60)
+screen.blit(text, [(foon_left+560), 50])
+button = pygame.Rect((foon_left+720), 210, 200, 60)
 pygame.draw.rect(screen, [183, 187, 240], button)
 font1 = pygame.font.SysFont('comicsansms', 50)
 text1 = font1.render("Начать", True, PALEVIOLETRED)
-screen.blit(text1, [630, 200])
-button2 = pygame.Rect(1250, 50, 60, 60)
+screen.blit(text1, [(foon_left+740), 200])
+button2 = pygame.Rect((foon_left+1360),(foon_top+480) , 60, 60)
 pygame.draw.rect(screen, [230, 208, 170], button2)
 font2 = pygame.font.SysFont('comicsansms', 50)
 text2 = font2.render("x", True, PALEVIOLETRED)
-screen.blit(text2, [1265, 40])
+screen.blit(text2, [(foon_left+1375), 40])
 
 pygame.display.update()
 
@@ -75,13 +75,16 @@ def main():
 def fon():
     screen.fill(WHITE)
     global count
-    ship1 = pygame.image.load("new.bmp")
-    ship_top1 = screen.get_height() - ship1.get_height()
-    ship_left1 = screen.get_width() / 2 - ship1.get_width() / 2
-    screen.blit(ship1, (ship_left1, ship_top1))
+    global  foon_left1
+    global foon_top1
+    foon1 = pygame.image.load("new.bmp")
+    foon_top1 = screen.get_height() - foon1.get_height()
+    foon_left1 = screen.get_width() / 2 - foon1.get_width() / 2
+    screen.blit(foon1, (foon_left1, foon_top1))
+    button2 = pygame.Rect((foon_left + 1360), (foon_top1 + 880), 60, 60)
     pygame.draw.rect(screen, [230, 208, 170], button2)
     text2 = font2.render("x", True, ROYALBLUE)
-    screen.blit(text2, [1265, 40])
+    screen.blit(text2, [(foon_left+1375), (foon_top1+872)])
 
 
 def vopros1():
@@ -90,30 +93,30 @@ def vopros1():
     vop1 = False
     global count
     im1 = pygame.image.load("heops.bmp")
-    screen.blit(im1, [450, 80])
+    screen.blit(im1, [(foon_left1+1010), (foon_top1+910)])# еще + 450
     font3 = pygame.font.SysFont('comicsansms', 50)
     text = font3.render("Вопрос №1", True, ROYALBLUE)
-    screen.blit(text, [450, 20])
+    screen.blit(text, [(foon_left1+1010), (foon_top1+850)])
     font4 = pygame.font.SysFont('comicsansms', 25)
     text3 = font4.render("Cамое древнее, первое чудо света и единственное, "
                          "сохранившееся до наших дней.", True, ROYALBLUE)
-    screen.blit(text3, [230, 450])
+    screen.blit(text3, [(foon_left1+790), (foon_top1+1280)])
     font5 = pygame.font.SysFont('comicsansms', 30)
     text4 = font5.render("1) Пирамида Херфена", True, ROYALBLUE)
-    screen.blit(text4, [540, 490])
-    button3 = pygame.Rect(490, 495, 40, 40)
+    screen.blit(text4, [(foon_left1+1100), (foon_top1+1320)])
+    button3 = pygame.Rect((foon_left1+1050), (foon_top1+1325), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button3)
     text5 = font5.render("2) Дашур", True, ROYALBLUE)
-    screen.blit(text5, [540, 540])
-    button4 = pygame.Rect(490, 545, 40, 40)
+    screen.blit(text5, [(foon_left1+1100), (foon_top1+1370)])
+    button4 = pygame.Rect((foon_left1+1050), (foon_top1+1375), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button4)
     text6 = font5.render("3) Пирамида Хеопса", True, ROYALBLUE)
-    screen.blit(text6, [540, 590])
-    button5 = pygame.Rect(490, 595, 40, 40)
+    screen.blit(text6, [(foon_left1+1100), (foon_top1+1420)])
+    button5 = pygame.Rect((foon_left1+1050), (foon_top1+1425), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button5)
     text7 = font5.render("4) Пирамида Менкаура", True, ROYALBLUE)
-    screen.blit(text7, [540, 640])
-    button6 = pygame.Rect(490, 645, 40, 40)
+    screen.blit(text7, [(foon_left1+1100), (foon_top1+1470)])
+    button6 = pygame.Rect((foon_left1+1050), (foon_top1+1475), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button6)
     running = True
     while running:
@@ -153,29 +156,29 @@ def vopros2():
     vop2 = False
     global count
     im1 = pygame.image.load("sady.bmp")
-    screen.blit(im1, [450, 120])
+    screen.blit(im1, [(foon_left1+1010), (foon_top1+950)])
     font3 = pygame.font.SysFont('comicsansms', 50)
     text = font3.render("Вопрос №2", True, ROYALBLUE)
-    screen.blit(text, [450, 20])
+    screen.blit(text, [(foon_left1+1010), (foon_top1+850)])
     font4 = pygame.font.SysFont('comicsansms', 25)
     text3 = font4.render("Где располагались Висячие сады Семирамиды?", True, ROYALBLUE)
-    screen.blit(text3, [400, 420])
+    screen.blit(text3, [(foon_left1+960), (foon_top1+1250)])
     font5 = pygame.font.SysFont('comicsansms', 30)
     text4 = font5.render("1) Вавилон", True, ROYALBLUE)
-    screen.blit(text4, [540, 490])
-    button3 = pygame.Rect(490, 495, 40, 40)
+    screen.blit(text4, [(foon_left1+1100), (foon_top1+1320)])
+    button3 = pygame.Rect((foon_left1+1050), (foon_top1+1325), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button3)
     text5 = font5.render("2) Рим", True, ROYALBLUE)
-    screen.blit(text5, [540, 540])
-    button4 = pygame.Rect(490, 545, 40, 40)
+    screen.blit(text5, [(foon_left1+1100), (foon_top1+1370)])
+    button4 = pygame.Rect((foon_left1+1050), (foon_top1+1375), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button4)
     text6 = font5.render("3) Ханигальбат", True, ROYALBLUE)
-    screen.blit(text6, [540, 590])
-    button5 = pygame.Rect(490, 595, 40, 40)
+    screen.blit(text6, [(foon_left1+1100), (foon_top1+1420)])
+    button5 = pygame.Rect((foon_left1+1050), (foon_top1+1425), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button5)
     text7 = font5.render("4) Мидия", True, ROYALBLUE)
-    screen.blit(text7, [540, 640])
-    button6 = pygame.Rect(490, 645, 40, 40)
+    screen.blit(text7, [(foon_left1+1100), (foon_top1+1470)])
+    button6 = pygame.Rect((foon_left1+1050), (foon_top1+1475), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button6)
     running = True
     while running:
@@ -215,29 +218,29 @@ def vopros3():
     vop3 = False
     global count
     im1 = pygame.image.load("zevs.bmp")
-    screen.blit(im1, [450, 80])
+    screen.blit(im1, [(foon_left1+1010), (foon_top1+910)])
     font3 = pygame.font.SysFont('comicsansms', 50)
     text = font3.render("Вопрос №3", True, ROYALBLUE)
-    screen.blit(text, [450, 20])
+    screen.blit(text, [(foon_left1+1010), (foon_top1+850)])
     font4 = pygame.font.SysFont('comicsansms', 25)
     text3 = font4.render("В каком веке была воздвигнута статуя Зевса в Олимпии?", True, ROYALBLUE)
-    screen.blit(text3, [400, 440])
+    screen.blit(text3, [(foon_left1+960), (foon_top1+1270)])
     font5 = pygame.font.SysFont('comicsansms', 30)
     text4 = font5.render("1) IV в. н.э.", True, ROYALBLUE)
-    screen.blit(text4, [540, 490])
-    button3 = pygame.Rect(490, 495, 40, 40)
+    screen.blit(text4, [(foon_left1+1100), (foon_top1+1320)])
+    button3 = pygame.Rect((foon_left1+1050), (foon_top1+1325), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button3)
     text5 = font5.render("2) III в. д.н.э.", True, ROYALBLUE)
-    screen.blit(text5, [540, 540])
-    button4 = pygame.Rect(490, 545, 40, 40)
+    screen.blit(text5, [(foon_left1+1100), (foon_top1+1370)])
+    button4 = pygame.Rect((foon_left1+1050), (foon_top1+1375), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button4)
     text6 = font5.render("3) I в. н.э.", True, ROYALBLUE)
-    screen.blit(text6, [540, 590])
-    button5 = pygame.Rect(490, 595, 40, 40)
+    screen.blit(text6, [(foon_left1+1100),(foon_top1+1420)])
+    button5 = pygame.Rect((foon_left1+1050),(foon_top1+1425), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button5)
     text7 = font5.render("4) V в. д.н.э.", True, ROYALBLUE)
-    screen.blit(text7, [540, 640])
-    button6 = pygame.Rect(490, 645, 40, 40)
+    screen.blit(text7, [(foon_left1+1100), (foon_top1+1470)])
+    button6 = pygame.Rect((foon_left1+1050), (foon_top1+1475), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button6)
     running = True
     while running:
@@ -277,29 +280,29 @@ def vopros4():
     vop4 = False
     global count
     im1 = pygame.image.load("hram.bmp")
-    screen.blit(im1, [400, 90])
+    screen.blit(im1, [(foon_left1+960), (foon_top1+920)])
     font3 = pygame.font.SysFont('comicsansms', 50)
     text = font3.render("Вопрос №4", True, ROYALBLUE)
-    screen.blit(text, [450, 20])
+    screen.blit(text, [(foon_left1+1010), (foon_top1+850)])
     font4 = pygame.font.SysFont('comicsansms', 25)
     text3 = font4.render("Архитектор Храма Артемиды Эфесской", True, ROYALBLUE)
-    screen.blit(text3, [400, 450])
+    screen.blit(text3, [(foon_left1+960), (foon_top1+1280)])
     font5 = pygame.font.SysFont('comicsansms', 30)
     text4 = font5.render("1) Плиний", True, ROYALBLUE)
-    screen.blit(text4, [540, 490])
-    button3 = pygame.Rect(490, 495, 40, 40)
+    screen.blit(text4, [(foon_left1+1100), (foon_top1+1320)])
+    button3 = pygame.Rect((foon_left1+1050), (foon_top1+1325), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button3)
     text5 = font5.render("2) Херсифрон", True, ROYALBLUE)
-    screen.blit(text5, [540, 540])
-    button4 = pygame.Rect(490, 545, 40, 40)
+    screen.blit(text5, [(foon_left1+1100), (foon_top1+1370)])
+    button4 = pygame.Rect((foon_left1+1050), (foon_top1+1375), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button4)
     text6 = font5.render("3) Марк Витрувий Поллион", True, ROYALBLUE)
-    screen.blit(text6, [540, 590])
-    button5 = pygame.Rect(490, 595, 40, 40)
+    screen.blit(text6, [(foon_left1+1100), (foon_top1+1420)])
+    button5 = pygame.Rect((foon_left1+1050), (foon_top1+1425), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button5)
     text7 = font5.render("4) Страбон", True, ROYALBLUE)
-    screen.blit(text7, [540, 640])
-    button6 = pygame.Rect(490, 645, 40, 40)
+    screen.blit(text7, [(foon_left1+1100), (foon_top1+1470)])
+    button6 = pygame.Rect((foon_left1+1050), (foon_top1+1475), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button6)
     running = True
     while running:
@@ -339,29 +342,29 @@ def vopros5():
     vop5 = False
     global count
     im1 = pygame.image.load("mavz.bmp")
-    screen.blit(im1, [450, 90])
+    screen.blit(im1, [(foon_left1+1010), (foon_top1+920)])
     font3 = pygame.font.SysFont('comicsansms', 50)
     text = font3.render("Вопрос №5", True, ROYALBLUE)
-    screen.blit(text, [450, 20])
+    screen.blit(text, [(foon_left1+1010), (foon_top1+850)])
     font4 = pygame.font.SysFont('comicsansms', 25)
     text3 = font4.render("Кем был разработан проект Мавзолей в Галикарнасе?", True, ROYALBLUE)
-    screen.blit(text3, [400, 450])
+    screen.blit(text3, [(foon_left1+960), (foon_top1+1280)])
     font5 = pygame.font.SysFont('comicsansms', 30)
     text4 = font5.render("1) Калликрат", True, ROYALBLUE)
-    screen.blit(text4, [540, 490])
-    button3 = pygame.Rect(490, 495, 40, 40)
+    screen.blit(text4, [(foon_left1+1100), (foon_top1+1320)])
+    button3 = pygame.Rect((foon_left1+1050), (foon_top1+1325), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button3)
     text5 = font5.render("2) Фидий и Поликлет", True, ROYALBLUE)
-    screen.blit(text5, [540, 540])
-    button4 = pygame.Rect(490, 545, 40, 40)
+    screen.blit(text5, [(foon_left1+1100), (foon_top1+1370)])
+    button4 = pygame.Rect((foon_left1+1050), (foon_top1+1375), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button4)
     text6 = font5.render("3) Перикл", True, ROYALBLUE)
-    screen.blit(text6, [540, 590])
-    button5 = pygame.Rect(490, 595, 40, 40)
+    screen.blit(text6, [(foon_left1+1100), (foon_top1+1420)])
+    button5 = pygame.Rect((foon_left1+1050), (foon_top1+1425), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button5)
     text7 = font5.render("4) Пифей", True, ROYALBLUE)
-    screen.blit(text7, [540, 640])
-    button6 = pygame.Rect(490, 645, 40, 40)
+    screen.blit(text7, [(foon_left1+1100), (foon_top1+1470)])
+    button6 = pygame.Rect((foon_left1+1050), (foon_top1+1475), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button6)
     running = True
     while running:
@@ -401,29 +404,29 @@ def vopros6():
     vop6 = False
     global count
     im1 = pygame.image.load("kolos.bmp")
-    screen.blit(im1, [450, 90])
+    screen.blit(im1, [(foon_left1+1010), (foon_top1+920)])
     font3 = pygame.font.SysFont('comicsansms', 50)
     text = font3.render("Вопрос №6", True, ROYALBLUE)
-    screen.blit(text, [450, 20])
+    screen.blit(text, [(foon_left1+1010), (foon_top1+850)])
     font4 = pygame.font.SysFont('comicsansms', 25)
     text3 = font4.render("Какова причина разрушения Колосса Родосского?", True, ROYALBLUE)
-    screen.blit(text3, [450, 430])
+    screen.blit(text3, [(foon_left1+1010), (foon_top1+1250)])
     font5 = pygame.font.SysFont('comicsansms', 30)
     text4 = font5.render("1) Ураган", True, ROYALBLUE)
-    screen.blit(text4, [540, 490])
-    button3 = pygame.Rect(490, 495, 40, 40)
+    screen.blit(text4, [(foon_left1+1100), (foon_top1+1320)])
+    button3 = pygame.Rect((foon_left1+1050), (foon_top1+1325), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button3)
     text5 = font5.render("2) Землетрясение", True, ROYALBLUE)
-    screen.blit(text5, [540, 540])
-    button4 = pygame.Rect(490, 545, 40, 40)
+    screen.blit(text5, [(foon_left1+1100), (foon_top1+1370)])
+    button4 = pygame.Rect((foon_left1+1050), (foon_top1+1375), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button4)
     text6 = font5.render("3) Ледниковый период", True, ROYALBLUE)
-    screen.blit(text6, [540, 590])
-    button5 = pygame.Rect(490, 595, 40, 40)
+    screen.blit(text6, [(foon_left1+1100), (foon_top1+1420)])
+    button5 = pygame.Rect((foon_left1+1050), (foon_top1+1425), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button5)
     text7 = font5.render("4) Принудительное разрушение", True, ROYALBLUE)
-    screen.blit(text7, [540, 640])
-    button6 = pygame.Rect(490, 645, 40, 40)
+    screen.blit(text7, [(foon_left1+1100), (foon_top1+1470)])
+    button6 = pygame.Rect((foon_left1+1050), (foon_top1+1475), 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button6)
     running = True
     while running:
@@ -463,29 +466,29 @@ def vopros7():
     vop7 = False
     global count
     im1 = pygame.image.load("mayak.bmp")
-    screen.blit(im1, [360, 90])
+    screen.blit(im1, [(foon_left1+920), 90])
     font3 = pygame.font.SysFont('comicsansms', 50)
     text = font3.render("Вопрос №7", True, ROYALBLUE)
-    screen.blit(text, [450, 20])
+    screen.blit(text, [(foon_left1+1010), 20])
     font4 = pygame.font.SysFont('comicsansms', 25)
     text3 = font4.render("Для чего предназначался Александрийский маяк?", True, ROYALBLUE)
-    screen.blit(text3, [450, 430])
+    screen.blit(text3, [(foon_left1+1010), 430])
     font5 = pygame.font.SysFont('comicsansms', 30)
     text4 = font5.render("1) Для судоходства", True, ROYALBLUE)
-    screen.blit(text4, [540, 490])
-    button3 = pygame.Rect(490, 495, 40, 40)
+    screen.blit(text4, [(foon_left1+1100), 490])
+    button3 = pygame.Rect((foon_left1+1050), 495, 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button3)
     text5 = font5.render("2) Для смотровой площадки", True, ROYALBLUE)
-    screen.blit(text5, [540, 540])
-    button4 = pygame.Rect(490, 545, 40, 40)
+    screen.blit(text5, [(foon_left1+1100), 540])
+    button4 = pygame.Rect((foon_left1+1050), 545, 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button4)
     text6 = font5.render("3) Для хранения овощей", True, ROYALBLUE)
-    screen.blit(text6, [540, 590])
-    button5 = pygame.Rect(490, 595, 40, 40)
+    screen.blit(text6, [(foon_left1+1100), 590])
+    button5 = pygame.Rect((foon_left1+1050), 595, 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button5)
     text7 = font5.render("4) Для красоты", True, ROYALBLUE)
-    screen.blit(text7, [540, 640])
-    button6 = pygame.Rect(490, 645, 40, 40)
+    screen.blit(text7, [(foon_left1+1100), 640])
+    button6 = pygame.Rect((foon_left1+1050), 645, 40, 40)
     pygame.draw.rect(screen, MINIBLUE, button6)
     running = True
     while running:
@@ -526,18 +529,18 @@ def finish():
     font5 = pygame.font.SysFont('comicsansms', 50)
     text = font3.render("Количество очков:", True, ROYALBLUE)
     text2 = font5.render(str(count), True, ROYALBLUE)
-    screen.blit(text, [450, 50])
-    screen.blit(text2, [660, 150])
-    button = pygame.Rect(570, 465, 220, 60)
+    screen.blit(text, [(foon_left1+1060), 50])
+    screen.blit(text2, [(foon_left1+1270), 150])
+    button = pygame.Rect((foon_left1+1180), 465, 220, 60)
     pygame.draw.rect(screen, MINIBLUE, button)
     font1 = pygame.font.SysFont('comicsansms', 40)
     text1 = font1.render("Подробнее", True, ROYALBLUE)
-    screen.blit(text1, [570, 460])
-    button3 = pygame.Rect(475, 540, 420, 60)
+    screen.blit(text1, [(foon_left1+1180), 460])
+    button3 = pygame.Rect((foon_left1+1085), 540, 420, 60)
     pygame.draw.rect(screen, MINIBLUE, button3)
     font3 = pygame.font.SysFont('comicsansms', 40)
     text3 = font3.render("Попробовать ещё раз", True, ROYALBLUE)
-    screen.blit(text3, [475, 535])
+    screen.blit(text3, [(foon_left1+1085), 535])
     running = True
     while running:
         clock.tick(FPS)
@@ -560,11 +563,11 @@ def info():
     font1 = pygame.font.SysFont('comicsansms', 25)
     if not vop1:
         text1 = font1.render("1.Вы ответили неправильно, правильный ответ: Пирамида Хеопса", True, TOMATO)
-        screen.blit(text1, [20, 220])
+        screen.blit(text1, [(foon_left1+630), 220])
         info2()
     else:
         text1 = font1.render("1.Вы ответили правильно", True, DARKBLUE)
-        screen.blit(text1, [20, 220])
+        screen.blit(text1, [(foon_left1+630), 220])
         info2()
 
 
@@ -573,11 +576,11 @@ def info2():
 
     if not vop2:
         text1 = font1.render("2.Вы ответили неправильно, правильный ответ: Вавилон", True, TOMATO)
-        screen.blit(text1, [20, 250])
+        screen.blit(text1, [(foon_left1+630), 250])
         info3()
     else:
         text1 = font1.render("2.Вы ответили правильно", True, DARKBLUE)
-        screen.blit(text1, [20, 250])
+        screen.blit(text1, [(foon_left1+630), 250])
         info3()
 
 
@@ -586,11 +589,11 @@ def info3():
 
     if not vop3:
         text1 = font1.render("3.Вы ответили неправильно, правильный ответ: V в. д.н.э.", True, TOMATO)
-        screen.blit(text1, [20, 280])
+        screen.blit(text1, [(foon_left1+630), 280])
         info4()
     else:
         text1 = font1.render("3.Вы ответили правильно", True, DARKBLUE)
-        screen.blit(text1, [20, 280])
+        screen.blit(text1, [(foon_left1+630), 280])
         info4()
 
 
@@ -599,11 +602,11 @@ def info4():
 
     if not vop4:
         text1 = font1.render("4.Вы ответили неправильно, правильный ответ: Херсифрон", True, TOMATO)
-        screen.blit(text1, [20, 310])
+        screen.blit(text1, [(foon_left1+630), 310])
         info5()
     else:
         text1 = font1.render("4.Вы ответили правильно", True, DARKBLUE)
-        screen.blit(text1, [20, 310])
+        screen.blit(text1, [(foon_left1+630), 310])
         info5()
 
 
@@ -612,11 +615,11 @@ def info5():
 
     if not vop5:
         text1 = font1.render("5.Вы ответили неправильно, правильный ответ: Пифей", True, TOMATO)
-        screen.blit(text1, [20, 340])
+        screen.blit(text1, [(foon_left1+630), 340])
         info6()
     else:
         text1 = font1.render("5.Вы ответили правильно", True, DARKBLUE)
-        screen.blit(text1, [20, 340])
+        screen.blit(text1, [(foon_left1+630), 340])
         info6()
 
 
@@ -625,11 +628,11 @@ def info6():
 
     if not vop6:
         text1 = font1.render("6.Вы ответили неправильно, правильный ответ: Землетрясение", True, TOMATO)
-        screen.blit(text1, [20, 370])
+        screen.blit(text1, [(foon_left1+630), 370])
         info7()
     else:
         text1 = font1.render("6.Вы ответили правильно", True, DARKBLUE)
-        screen.blit(text1, [20, 370])
+        screen.blit(text1, [(foon_left1+630), 370])
         info7()
 
 
@@ -637,10 +640,10 @@ def info7():
     font1 = pygame.font.SysFont('comicsansms', 25)
     if not vop7:
         text1 = font1.render("7.Вы ответили неправильно, правильный ответ: Для судоходства", True, TOMATO)
-        screen.blit(text1, [20, 400])
+        screen.blit(text1, [(foon_left1+630), 400])
     else:
         text1 = font1.render("7.Вы ответили правильно", True, DARKBLUE)
-        screen.blit(text1, [20, 400])
+        screen.blit(text1, [(foon_left1+630), 400])
 
 
 if __name__ == '__main__':
