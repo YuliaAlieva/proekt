@@ -31,7 +31,6 @@ foon = pygame.image.load("wa.bmp")
 foon_top = screen.get_height() - foon.get_height()
 foon_left = screen.get_width() / 2 - foon.get_width() / 2
 screen.blit(foon, (foon_left, foon_top))
-count = 0
 font = pygame.font.SysFont('comicsansms', 100)
 text = font.render("Викторина", True, PALEVIOLETRED)
 screen.blit(text, [450, 50])
