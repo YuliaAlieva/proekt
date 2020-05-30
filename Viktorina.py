@@ -17,6 +17,8 @@ TOMATO = (165, 42, 42)
 DARKBLUE = (65, 105, 225)
 MINIBLUE = (183, 187, 240)
 CVET = (230, 208, 170)
+
+
 pygame.init()
 pygame.mixer.init()
 screen = pygame.display.set_mode((get_width, get_height), pygame.FULLSCREEN)
@@ -47,45 +49,26 @@ screen.blit(text2, [1265, 40])
 pygame.display.update()
 pygame.display.flip()
 
+count = 0
 
-def main():
-    running = True
-    while running:
-        # Держим цикл на правильной скорости
-        clock.tick(FPS)
-        pygame.mixer.music.get_busy()
-        # Ввод процесса (события)
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                mouse_pos = event.pos  # gets mouse position
-                if button.collidepoint(mouse_pos):
-                    vopros1()
-                if button2.collidepoint(mouse_pos):
-                    pygame.quit()
 
-        pygame.display.update()
-        pygame.display.flip()
+running = True
 
 
 def fon():
     screen.fill(WHITE)
-    global count
     ship1 = pygame.image.load("new.bmp")
     ship_top1 = screen.get_height() - ship1.get_height()
     ship_left1 = screen.get_width() / 2 - ship1.get_width() / 2
     screen.blit(ship1, (ship_left1, ship_top1))
-    pygame.draw.rect(screen, CVET, button2)
+    pygame.draw.rect(screen, [230, 208, 170], button2)
     text2 = font2.render("x", True, ROYALBLUE)
     screen.blit(text2, [1265, 40])
 
 
-def vopros1():
+def vopros1(count):
     fon()
-    global vop1
     vop1 = False
-    global count
     im1 = pygame.image.load("heops.bmp")
     screen.blit(im1, [450, 80])
     font3 = pygame.font.SysFont('comicsansms', 50)
@@ -123,32 +106,32 @@ def vopros1():
                 if button3.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, TOMATO, button3)
                     pygame.display.flip()
-                    vopros2()
+                    vopros2(count, vop1)
                 if button4.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, TOMATO, button4)
                     pygame.display.flip()
-                    vopros2()
+                    vopros2(count, vop1)
                 if button5.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, DARKBLUE, button5)
                     pygame.display.flip()
                     vop1 = True
+                    print(vop1)
                     count += 1
                     print(count)
-                    vopros2()
+                    vopros2(count, vop1)
                 if button6.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, TOMATO, button6)
                     pygame.display.flip()
-                    vopros2()
+                    vopros2(count, vop1)
 
         pygame.display.update()
         pygame.display.flip()
 
+    return count, vop1
 
-def vopros2():
+def vopros2(count, vop1):
     fon()
-    global vop2
     vop2 = False
-    global count
     im1 = pygame.image.load("sady.bmp")
     screen.blit(im1, [450, 120])
     font3 = pygame.font.SysFont('comicsansms', 50)
@@ -188,29 +171,28 @@ def vopros2():
                     vop2 = True
                     count = count + 1
                     print(count)
-                    vopros3()
+                    vopros3(count, vop1, vop2)
                 if button4.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, TOMATO, button4)
                     pygame.display.flip()
-                    vopros3()
+                    vopros3(count, vop1, vop2)
                 if button5.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, TOMATO, button5)
                     pygame.display.flip()
-                    vopros3()
+                    vopros3(count, vop1, vop2)
                 if button6.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, TOMATO, button6)
                     pygame.display.flip()
-                    vopros3()
+                    vopros3(count, vop1, vop2)
 
         pygame.display.update()
         pygame.display.flip()
+    return count, vop1, vop2
 
 
-def vopros3():
+def vopros3(count, vop1, vop2):
     fon()
-    global vop3
     vop3 = False
-    global count
     im1 = pygame.image.load("zevs.bmp")
     screen.blit(im1, [450, 80])
     font3 = pygame.font.SysFont('comicsansms', 50)
@@ -247,32 +229,31 @@ def vopros3():
                 if button3.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, TOMATO, button3)
                     pygame.display.flip()
-                    vopros4()
+                    vopros4(count, vop1, vop2, vop3)
                 if button4.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, TOMATO, button4)
                     pygame.display.flip()
-                    vopros4()
+                    vopros4(count, vop1, vop2, vop3)
                 if button5.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, TOMATO, button5)
                     pygame.display.flip()
-                    vopros4()
+                    vopros4(count, vop1, vop2, vop3)
                 if button6.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, DARKBLUE, button6)
                     pygame.display.flip()
                     vop3 = True
                     count = count + 1
                     print(count)
-                    vopros4()
+                    vopros4(count, vop1, vop2, vop3)
 
         pygame.display.update()
         pygame.display.flip()
+    return count, vop1, vop2, vop3
 
 
-def vopros4():
+def vopros4(count, vop1, vop2, vop3):
     fon()
-    global vop4
     vop4 = False
-    global count
     im1 = pygame.image.load("hram.bmp")
     screen.blit(im1, [400, 90])
     font3 = pygame.font.SysFont('comicsansms', 50)
@@ -309,32 +290,31 @@ def vopros4():
                 if button3.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, TOMATO, button3)
                     pygame.display.flip()
-                    vopros5()
+                    vopros5(count, vop1, vop2, vop3, vop4)
                 if button4.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, DARKBLUE, button4)
                     pygame.display.flip()
                     vop4 = True
                     count = count + 1
                     print(count)
-                    vopros5()
+                    vopros5(count, vop1, vop2, vop3, vop4)
                 if button5.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, TOMATO, button5)
                     pygame.display.flip()
-                    vopros5()
+                    vopros5(count, vop1, vop2, vop3, vop4)
                 if button6.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, TOMATO, button6)
                     pygame.display.flip()
-                    vopros5()
+                    vopros5(count, vop1, vop2, vop3, vop4)
 
         pygame.display.update()
         pygame.display.flip()
+    return count, vop1, vop2, vop3, vop4
 
 
-def vopros5():
+def vopros5(count, vop1, vop2, vop3, vop4):
     fon()
-    global vop5
     vop5 = False
-    global count
     im1 = pygame.image.load("mavz.bmp")
     screen.blit(im1, [450, 90])
     font3 = pygame.font.SysFont('comicsansms', 50)
@@ -371,32 +351,31 @@ def vopros5():
                 if button3.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, TOMATO, button3)
                     pygame.display.flip()
-                    vopros6()
+                    vopros6(count, vop1, vop2, vop3, vop4, vop5)
                 if button4.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, TOMATO, button4)
                     pygame.display.flip()
-                    vopros6()
+                    vopros6(count, vop1, vop2, vop3, vop4, vop5)
                 if button5.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, TOMATO, button5)
                     pygame.display.flip()
-                    vopros6()
+                    vopros6(count, vop1, vop2, vop3, vop4, vop5)
                 if button6.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, DARKBLUE, button6)
                     pygame.display.flip()
                     vop5 = True
                     count = count + 1
                     print(count)
-                    vopros6()
+                    vopros6(count, vop1, vop2, vop3, vop4, vop5)
 
         pygame.display.update()
         pygame.display.flip()
+    return count, vop1, vop2, vop3, vop4, vop5
 
 
-def vopros6():
+def vopros6(count, vop1, vop2, vop3, vop4, vop5):
     fon()
-    global vop6
     vop6 = False
-    global count
     im1 = pygame.image.load("kolos.bmp")
     screen.blit(im1, [450, 90])
     font3 = pygame.font.SysFont('comicsansms', 50)
@@ -433,32 +412,31 @@ def vopros6():
                 if button3.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, TOMATO, button3)
                     pygame.display.flip()
-                    vopros7()
+                    vopros7(count, vop1, vop2, vop3, vop4, vop5, vop6)
                 if button4.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, DARKBLUE, button4)
                     pygame.display.flip()
                     count = count + 1
                     vop6 = True
                     print(count)
-                    vopros7()
+                    vopros7(count, vop1, vop2, vop3, vop4, vop5, vop6)
                 if button5.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, TOMATO, button5)
                     pygame.display.flip()
-                    vopros7()
+                    vopros7(count, vop1, vop2, vop3, vop4, vop5, vop6)
                 if button6.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, TOMATO, button6)
                     pygame.display.flip()
-                    vopros7()
+                    vopros7(count, vop1, vop2, vop3, vop4, vop5, vop6)
 
         pygame.display.update()
         pygame.display.flip()
+    return count, vop1, vop2, vop3, vop4, vop5, vop6
 
 
-def vopros7():
+def vopros7(count, vop1, vop2, vop3, vop4, vop5, vop6):
     fon()
-    global vop7
     vop7 = False
-    global count
     im1 = pygame.image.load("mayak.bmp")
     screen.blit(im1, [360, 90])
     font3 = pygame.font.SysFont('comicsansms', 50)
@@ -498,26 +476,27 @@ def vopros7():
                     vop7 = True
                     count = count + 1
                     print(count)
-                    finish()
+                    finish(count, vop1, vop2, vop3, vop4, vop5, vop6, vop7)
                 if button4.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, TOMATO, button4)
                     pygame.display.flip()
-                    finish()
+                    finish(count, vop1, vop2, vop3, vop4, vop5, vop6, vop7)
                 if button5.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, TOMATO, button5)
                     pygame.display.flip()
-                    finish()
+                    finish(count, vop1, vop2, vop3, vop4, vop5, vop6, vop7)
                 if button6.collidepoint(mouse_pos):
                     pygame.draw.rect(screen, TOMATO, button6)
                     pygame.display.flip()
-                    finish()
+                    finish(count, vop1, vop2, vop3, vop4, vop5, vop6, vop7)
 
         pygame.display.update()
         pygame.display.flip()
+    return count, vop1, vop2, vop3, vop4, vop5, vop6, vop7
 
 
-def finish():
-    global count
+def finish(count, vop1, vop2, vop3, vop4, vop5, vop6, vop7):
+    print(vop1)
     fon()
     font3 = pygame.font.SysFont('comicsansms', 50)
     font5 = pygame.font.SysFont('comicsansms', 50)
@@ -544,93 +523,95 @@ def finish():
                 if button2.collidepoint(mouse_pos):
                     pygame.quit()
                 if button.collidepoint(mouse_pos):
-                    info()
+                    print(count)
+                    info(vop1,vop2, vop3, vop4, vop5, vop6, vop7)
                 if button3.collidepoint(mouse_pos):
                     count = 0
-                    vopros1()
+                    vopros1(count)
 
         pygame.display.update()
         pygame.display.flip()
+    return count, vop1, vop2, vop3, vop4, vop5, vop6, vop7
 
 
-def info():
+def info(vop1,vop2, vop3, vop4, vop5, vop6, vop7):
     font1 = pygame.font.SysFont('comicsansms', 25)
     if not vop1:
         text1 = font1.render("1.Вы ответили неправильно, правильный ответ: Пирамида Хеопса", True, TOMATO)
         screen.blit(text1, [20, 220])
-        info2()
+        info2(vop2, vop3, vop4, vop5, vop6, vop7)
     else:
         text1 = font1.render("1.Вы ответили правильно", True, DARKBLUE)
         screen.blit(text1, [20, 220])
-        info2()
+        info2(vop2, vop3, vop4, vop5, vop6, vop7)
 
 
-def info2():
+def info2(vop2, vop3, vop4, vop5, vop6, vop7):
     font1 = pygame.font.SysFont('comicsansms', 25)
 
     if not vop2:
         text1 = font1.render("2.Вы ответили неправильно, правильный ответ: Вавилон", True, TOMATO)
         screen.blit(text1, [20, 250])
-        info3()
+        info3(vop3, vop4, vop5, vop6, vop7)
     else:
         text1 = font1.render("2.Вы ответили правильно", True, DARKBLUE)
         screen.blit(text1, [20, 250])
-        info3()
+        info3(vop3, vop4, vop5, vop6, vop7)
 
 
-def info3():
+def info3(vop3, vop4, vop5, vop6, vop7):
     font1 = pygame.font.SysFont('comicsansms', 25)
 
     if not vop3:
         text1 = font1.render("3.Вы ответили неправильно, правильный ответ: V в. д.н.э.", True, TOMATO)
         screen.blit(text1, [20, 280])
-        info4()
+        info4(vop4, vop5, vop6, vop7)
     else:
         text1 = font1.render("3.Вы ответили правильно", True, DARKBLUE)
         screen.blit(text1, [20, 280])
-        info4()
+        info4(vop4, vop5, vop6, vop7)
 
 
-def info4():
+def info4(vop4, vop5, vop6, vop7):
     font1 = pygame.font.SysFont('comicsansms', 25)
 
     if not vop4:
         text1 = font1.render("4.Вы ответили неправильно, правильный ответ: Херсифрон", True, TOMATO)
         screen.blit(text1, [20, 310])
-        info5()
+        info5(vop5, vop6, vop7)
     else:
         text1 = font1.render("4.Вы ответили правильно", True, DARKBLUE)
         screen.blit(text1, [20, 310])
-        info5()
+        info5(vop5, vop6, vop7)
 
 
-def info5():
+def info5(vop5, vop6, vop7):
     font1 = pygame.font.SysFont('comicsansms', 25)
 
     if not vop5:
         text1 = font1.render("5.Вы ответили неправильно, правильный ответ: Пифей", True, TOMATO)
         screen.blit(text1, [20, 340])
-        info6()
+        info6(vop6,vop7)
     else:
         text1 = font1.render("5.Вы ответили правильно", True, DARKBLUE)
         screen.blit(text1, [20, 340])
-        info6()
+        info6(vop6,vop7)
 
 
-def info6():
+def info6(vop6, vop7):
     font1 = pygame.font.SysFont('comicsansms', 25)
 
     if not vop6:
         text1 = font1.render("6.Вы ответили неправильно, правильный ответ: Землетрясение", True, TOMATO)
         screen.blit(text1, [20, 370])
-        info7()
+        info7(vop7)
     else:
         text1 = font1.render("6.Вы ответили правильно", True, DARKBLUE)
         screen.blit(text1, [20, 370])
-        info7()
+        info7(vop7)
 
 
-def info7():
+def info7(vop7):
     font1 = pygame.font.SysFont('comicsansms', 25)
     if not vop7:
         text1 = font1.render("7.Вы ответили неправильно, правильный ответ: Для судоходства", True, TOMATO)
@@ -641,5 +622,21 @@ def info7():
 
 
 if __name__ == '__main__':
-    main()
+    while running:
+        # Держим цикл на правильной скорости
+        clock.tick(FPS)
+        pygame.mixer.music.get_busy()
+        # Ввод процесса (события)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_pos = event.pos  # gets mouse position
+                if button.collidepoint(mouse_pos):
+                    vopros1(count)
+                if button2.collidepoint(mouse_pos):
+                    pygame.quit()
+
+        pygame.display.update()
+        pygame.display.flip()
 pygame.quit()
