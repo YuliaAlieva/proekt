@@ -1,7 +1,7 @@
 import pygame
 
-WIDTH = 1080
-HEIGHT = 1080
+get_width = 1366
+get_height = 768
 FPS = 30
 
 # Задаем цвета
@@ -17,10 +17,9 @@ TOMATO = (165, 42, 42)
 DARKBLUE = (65, 105, 225)
 MINIBLUE = (183, 187, 240)
 CVET = (230, 208, 170)
-
 pygame.init()
 pygame.mixer.init()
-screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+screen = pygame.display.set_mode((get_width, get_height), pygame.FULLSCREEN)
 pygame.display.set_caption("My Game")
 clock = pygame.time.Clock()
 pygame.mixer.music.load('uku.mp3')
